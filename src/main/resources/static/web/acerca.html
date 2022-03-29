@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+  <link rel="stylesheet" href="./css/index.css" />
+  <title>ROSIER</title>
+</head>
+
+<body>
+  <header>
+    <div id="app">
+      <div class="logo">
+        <a href="./index.html">ROSIER</a>
+      </div>
+
+      <li><a href="./login.html" class="link">LOG IN/REGISTER</a></li>
+      <nav>
+        <ul class="list-items">
+          <li><a href="../web/prodMarroquineria.html" class="link">MARROQUINERIA</a></li>
+          <li><a href="#" class="link">ZAPATOS</a></li>
+          <li><a href="#" class="link">JOYERIA</a></li>
+          <li><a href="#" class="link">ACCESORIOS</a></li>
+         
+        </ul>
+
+        <div class="nav-btns">
+          <div class="buscador">
+            <input :class="collap">
+          </div>
+          <i @click="expandir" class="fas fa-search"></i>
+          <i class="fas fa-cart-plus"></i>
+        </div>
+      </nav>
+      <div class="main">
+        <div class="main-left">
+          <div class="social-media">
+            <a href="https://www.facebook.com/profile.php?id=100079552594834" class="s-btn"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com/?lang=es" class="s-btn"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/rosier.fashon.design/" class="s-btn"><i class="fab fa-instagram"></i></a>
+          </div>
+          <div class="banner">
+            <div class="f-text">
+              <h1>
+                <br />
+                <span>NUEVA COLECCION</span>
+                <br />
+              </h1>
+            </div>
+            <a href="#" class="btn">SHOP NOW</a>
+          </div>
+        </div>
+        <div class="main-right">
+          <img
+            src="https://www.dior.com/couture/var/dior/storage/images/pushs-editos/folder-women-summer-22/224v13am706x5832/30732227-1-eng-GB/224v13am706x5832_1440_1200.jpg" />
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="videos">
+		<video src="https://lv-vod.fl.freecaster.net/vod/louisvuitton/1CQvjKXpRY_HD.mp4" autoplay loop muted width="100%"></video>
+	</div>
+  <div class="letra-video">
+    <a href="#" class="btn" style="position: absolute">SHOP</a>
+  </div>
+	</main>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="./lib/main.js"></script>
+</body>
+</body>
+
+</html>

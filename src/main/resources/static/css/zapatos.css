@@ -1,0 +1,162 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+a,
+a:hover,
+a:focus {
+	text-decoration: none;
+	outline: none;
+}
+
+ul {
+	list-style: none;
+	display: inline-block;
+}
+
+.header {
+	background-color: #fff;
+	box-shadow: 0px 5px 10px rgba(91, 91, 91, 0.1);
+}
+
+.header_logo {
+	padding: 26px 0;
+	text-align: center;
+}
+
+.header_logo a {
+	display: inline-block;
+	color: #000;
+	font-size: 27px;
+	text-transform: uppercase;
+	font-weight: 700;
+	letter-spacing: 3px;
+}
+
+.header_menu {
+	padding: 30px 0 27px;
+	text-align: center;
+}
+
+.header_menu ul li {
+	position: relative;
+	display: inline-block;
+	margin-right: 40px;
+}
+
+.header_menu ul li a {
+	color: #000;
+	font-size: 17px;
+	font-weight: 500;
+	display: block;
+	padding: 2px 0;
+}
+
+.header_right {
+	text-align: center;
+	padding: 30px 0 27px;
+}
+
+.header_right_auth {
+	display: inline-block;
+	margin-right: 25px;
+}
+
+.header_right .header_right_auth a {
+	font-size: 17px;
+	color: #666;
+	position: relative;
+	margin-right: 13px;
+}
+
+.header_right .header_right_auth a:last-child {
+	margin-right: 0;
+}
+
+.header_right .header_right_auth a::after {
+	position: absolute;
+	right: -12px;
+	top: 0px;
+	content: "-";
+	font-size: 16px;
+}
+
+.header_right .header_right_auth a:last-child::after {
+	display: none;
+}
+
+.categories {
+	position: relative;
+	overflow: hidden;
+}
+
+.categories .categories_item {
+	position: relative;
+	height: 314px;
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+	margin-right: 10px;
+}
+
+.categories .categories_large_item {
+	height: 593px;
+}
+
+.categories .categories_text {
+	position: absolute;
+	left: 50px;
+}
+
+.categories .categories_large_item .categories_text {
+	position: absolute;
+	left: 50px;
+	max-width: 333px;
+}
+
+.categories .categories_large_item .categories_text p {
+	margin-bottom: 15px;
+}
+
+.categories .categories_text h1 {
+	color: #000;
+	margin-top: 4rem;
+	margin-bottom: 5px;
+}
+
+.categories .categories_text p {
+	margin-bottom: 10px;
+}
+
+.categories .categories_text a {
+	font-size: 14px;
+	color: #000;
+	text-transform: uppercase;
+	font-weight: 600;
+	position: relative;
+	padding: 0 0 3px;
+	display: inline-block;
+}
+
+.categories .categories_text a::after {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 2px;
+	width: 100%;
+	background-color: #ff7200;
+	content: "";
+}
+
+a:hover {
+	color: #ff7200 !important;
+}
+.btn-primary {
+	background-color: #0f4c75;
+}
+
+.btn-primary:hover {
+	background-color: #fdcb9e;
+}

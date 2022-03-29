@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Marroquineria</title>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marroquinería</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,900&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+			crossorigin="anonymous"
+		/>
+		<link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="../css/zapatos.css">
+		<link rel="stylesheet" href="../css/app.css" />
+	</head>
+
+	<body>
+		<div id="app">
+			<header>
+				<div class="mobile-menu bg-second">
+					<a href="index.html" class="mb-logo">ROSIER</a>
+					<span class="mb-menu-toggle" id="mb-menu-toggle">
+						<i class="bx bx-menu"></i>
+					</span>
+				</div>
+
+				<div class="header-wrapper" id="header-wrapper">
+					<span class="mb-menu-toggle mb-menu-close" id="mb-menu-close">
+						<i class="bx bx-x"></i>
+					</span>
+
+					<div class="bg-second">
+						<div class="top-header container">
+							<ul class="devided">
+								<li>
+									<a href="#">+840123456789</a>
+								</li>
+								<li>
+									<a href="mailto:rosier@gmail.com">rosier@gmail.com</a>
+								</li>
+							</ul>
+							<ul class="devided">
+								<li class="dropdown">
+									<a href="#">USD</a>
+								</li>
+								<li class="dropdown">
+									<a href="">ESPAÑOL</a>
+									<i class="bx bxs-chevron-down"></i>
+									<ul class="dropdown-content">
+										<li><a href="#">INGLÉS</a></li>
+										<li><a href="#">FRANCÉS</a></li>
+										<li><a href="#">ITALIANO</a></li>
+									</ul>
+								</li>
+								<li><a href="#">NOVEDADES</a></li>
+							</ul>
+						</div>
+					</div>
+
+				  	<div class="bg-main">
+						<div class="mid-header container">
+							<a href="index.html" class="logo">ROSIER</a>
+							<div class="search">
+								<input type="text" placeholder="Buscador" v-model="buscar" @keyup="buscar" />
+								<i class="bx bx-search-alt"></i>
+							</div>
+							<ul class="user-menu">
+								<li>
+									<a href="#"><i class="bx bx-user-circle"></i></a>
+								</li>
+								<li>
+									<a href="#" @click="mostrarCarrito()"><i class="bx bx-cart"></i></a>
+								</li>
+							</ul>
+						</div>
+						<div v-show="mostrarCarro" style="position: absolute; top: 100px; right: 20px; border: 1px solid black; padding: 2rem 5rem; border-radius: 20px; z-index: 2; background-color: white">
+							<table class="table">
+								<thead>
+									<tr>
+										<th>Nombre de prenda</th>
+										<th>Cant</th>
+										<th>Monto</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr v-for="articulo in carrito">
+										<td>{{articulo.nombrePrenda}}</td>
+										<td>{{articulo.cantidad}}</td>
+										<td>$ {{articulo.precio}}</td>
+									</tr>
+									<tr>
+										<td>Total</td>
+										<td></td>
+										<td>$ {{total}}</td>
+									</tr>
+								</tbody>
+							</table>
+							<!-- <ul v-for="item in carrito" style="font-size: 1.4rem">
+								<li><b>{{item.nombrePrenda}}</b></li>
+							</ul> -->
+							<div class="d-flex align-items-end">
+								<a @click="vaciarCarrito()" class="btn btn-danger mt-3 mx-3">Vaciar carrito</a>
+								<a @click="comprar(prenda.nombrePrenda.substring(0, prenda.nombrePrenda.indexOf(' ')), '1', prenda.precio, prenda.precio)" class="btn btn-success mt-3">Comprar</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="bg-second">
+						<div class="bottom-header container">
+							<ul class="main-menu">
+								<li><a href="#">inicio</a></li>
+								<!--  menu -->
+								<li class="mega-dropdown">
+									<a href="#">Tienda<i class="bx bxs-chevron-down"></i></a>
+									<div class="mega-content">
+										<div class="row">
+											<div class="col-3 col-md-12">
+												<div class="box">
+													<h3>Categorias</h3>
+													<ul>
+														<li><a href="../web/zapatos.html">Zapatos</a></li>
+														<li><a href="../web/prodMarroquineria.html">Marroquineria</a></li>
+														<li><a href="../web/indumentaria.html">Indumentaria</a></li>
+														<li><a href="../web/joyeria.html">Joyería</a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<!-- end  menu -->
+								<li><a href="./web/contacto.html">contacto</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</header>
+
+			<div class="bg-main">
+				<div class="container">
+					<div class="box">
+						<div class="breadcumb">
+							<a href="./index.html">Inicio</a>
+							<span><i class="bx bxs-chevrons-right"></i></span>
+							<a href="#">Marroquineria</a>
+						</div>
+					</div>
+					<section class="categories border">
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-lg-6 p-0">
+									<div class="categories_item categories_large_item">
+										<img src="https://res.cloudinary.com/gohansox/image/upload/v1647567292/image_yw3qit.jpg" class="img-fluid shadow" alt="" />
+										<div class="categories_text">
+											<h1>Marroquinería Rosier</h1>
+											<p>Lo mejor en tendencias 2022</p>
+											<a @click="filtro('zapatos')">Comprá ya!</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6 p-0">
+									<div class="categories_item categories_large_item">
+										<img src="https://res.cloudinary.com/gohansox/image/upload/v1647567012/pexels-artem-beliaikin-1100790_qgfvwo.jpg" class="img-fluid shadow" alt="" />
+										<div class="categories_text">
+											<h1>Colección Equus 2022</h1>
+											<p>Lo mejor en tendencias 2022</p>
+											<a @click="filtro('sandalia')">Compra ya!</a>
+										</div>
+									</div>
+								</div>
+								<!-- <div class="col-lg-6 ">
+								<div class="row">
+									<div class="col-lg-6 col-md-6 col-12 p-0">
+										<div class="categories_item">
+											<img src="../zapatos4.jpg" class="img-fluid shadow" alt="">
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6 col-12 p-0">
+										<div class="categories_item">
+											<img src="../zapatos2.jpg" class="img-fluid shadow" alt="">
+											<div class="categories_text">
+												<h4></h4>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6 col-12 p-0">
+										<div class="categories_item">
+											<img src="../zapatos5.jpg" class="img-fluid shadow" alt="">
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6 col-12 p-0">
+										<div class="categories_item">
+											<img src="../zapatos6.jpg" class="img-fluid shadow" alt="">
+										</div>
+									</div>
+								</div>
+							</div> -->
+							</div>
+						</div>
+					</section>
+					<div class="box">
+						<div class="d-flex">
+							<div>
+								<div class="box">
+									<span class="filter-header"> Categorias </span>
+									<!--   categorias para ropas que no se si ponerlo o no -->
+									<ul class="filter-list">
+										<li><a @click="filtroCategorias('Cartera')">Carteras</a></li>
+										<li><a @click="filtroCategorias('Cinto')">Cintos</a></li>
+										<li><a @click="filtroCategorias('Agenda')">Agendas</a></li>
+										<li><a @click="filtroCategorias('Billetera')">Billeteras</a></li>
+									</ul>
+								</div>
+								<div class="box">
+									<span class="filter-header"> Precio </span>
+									<div class="price-range">
+										<input type="text" id="precioDesde" />
+										<span>-</span>
+										<input type="text" id="precioHasta" @keyup="filtroPrecio()" />
+									</div>
+								</div>
+								<div class="box">
+									<ul class="filter-list">
+										<li>
+											<div class="group-checkbox">
+												<input type="checkbox" id="status1" />
+												<label for="status1">
+													On sale
+													<i class="bx bx-check"></i>
+												</label>
+											</div>
+										</li>
+										<li>
+											<div class="group-checkbox">
+												<input type="checkbox" id="status3" />
+												<label for="status3">
+													ofertas
+													<i class="bx bx-check"></i>
+												</label>
+											</div>
+										</li>
+									</ul>
+								</div>
+
+								<div class="box">
+									<span class="filter-header"> Colores </span>
+									<ul class="filter-list">
+										<li>
+											<div class="group-checkbox">
+												<input type="checkbox" id="remember1" @change="filtroColor('Negro')" />
+												<label for="remember1">
+													Negro
+													<i class="bx bx-check"></i>
+												</label>
+											</div>
+										</li>
+										<li>
+											<div class="group-checkbox">
+												<input type="checkbox" id="remember2" @change="filtroColor('Marrón')" />
+												<label for="remember2">
+													Marrón
+													<i class="bx bx-check"></i>
+												</label>
+											</div>
+										</li>
+										<li>
+											<div class="group-checkbox">
+												<input
+													type="checkbox"
+													id="remember3"
+													@change="filtroColor('Marrón Claro')"
+												/>
+												<label for="remember3">
+													Marrón claro
+													<i class="bx bx-check"></i>
+												</label>
+											</div>
+										</li>
+										<li>
+											<div class="group-checkbox">
+												<input type="checkbox" id="remember4" @change="filtroColor('Blanco')" />
+												<label for="remember4">
+													Blanco
+													<i class="bx bx-check"></i>
+												</label>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<!-- estrellitas que me dan error ptm -->
+								<!-- <div class="box">
+									<span class="filter-header"> rating </span>
+									<ul class="filter-list">
+										<li>
+											<div class="group-checkbox">
+												<input type="checkbox" id="remember1" />
+												<label for="remember1">
+													<span class="rating">
+														<i class="bx bxs-star"></i>
+														<i class="bx bxs-star"></i>
+														<i class="bx bxs-star"></i>
+														<i class="bx bxs-star"></i>
+														<i class="bx bxs-star"></i>
+													</span>
+													<i class="bx bx-check"></i>
+												</label>
+											</div>
+										</li>
+										<li>
+											<div class="group-checkbox">
+												<input type="checkbox" id="remember1" />
+												<label for="remember1">
+													<span class="rating">
+														<i class="bx bxs-star"></i>
+														<i class="bx bxs-star"></i>
+														<i class="bx bxs-star"></i>
+														<i class="bx bxs-star"></i>
+														<i class="bx bx-star"></i>
+													</span>
+													<i class="bx bx-check"></i>
+												</label>
+											</div>
+										</li>
+										<li>
+											<div class="group-checkbox">
+												<input type="checkbox" id="remember1" />
+												<label for="remember1">
+													<span class="rating">
+														<i class="bx bxs-star"></i>
+														<i class="bx bxs-star"></i>
+														<i class="bx bxs-star"></i>
+														<i class="bx bx-star"></i>
+														<i class="bx bx-star"></i>
+													</span>
+													<i class="bx bx-check"></i>
+												</label>
+											</div>
+										</li>
+										<li>
+											<div class="group-checkbox">
+												<input type="checkbox" id="remember1" />
+												<label for="remember1">
+													<span class="rating">
+														<i class="bx bxs-star"></i>
+														<i class="bx bxs-star"></i>
+														<i class="bx bx-star"></i>
+														<i class="bx bx-star"></i>
+														<i class="bx bx-star"></i>
+													</span>
+													<i class="bx bx-check"></i>
+												</label>
+											</div>
+										</li>
+										<li>
+											<div class="group-checkbox">
+												<input type="checkbox" id="remember1" />
+												<label for="remember1">
+													<span class="rating">
+														<i class="bx bxs-star"></i>
+														<i class="bx bx-star"></i>
+														<i class="bx bx-star"></i>
+														<i class="bx bx-star"></i>
+														<i class="bx bx-star"></i>
+													</span>
+													<i class="bx bx-check"></i>
+												</label>
+											</div>
+										</li>
+									</ul>
+								</div> -->
+							</div>
+							<div>
+								<h1 class="text-center mb-3">Marroquinería</h1>
+								<div class="box">
+									<div class="row d-flex justify-content-center justify-content-between flex-wrap" id="products">
+										<div
+											class="card mb-3"
+											style="width: 18rem"
+											v-for="prenda in filtrarPrendas"
+										>
+											<img :src="prenda.imagen" class="card-img-top" alt="..." />
+											<div class="card-body d-flex flex-column justify-content-between">
+												<div>
+													<h5 class="card-title">
+														{{prenda.nombrePrenda.substring(0, prenda.nombrePrenda.indexOf('Color '))}}
+													</h5>
+													<p class="card-text">Precio: ${{prenda.precio}}</p>
+													<div class="d-flex">
+														<p class="card-text">
+															Color: {{prenda.nombrePrenda.substring(prenda.nombrePrenda.indexOf('Color ')
+															+ 5)}}
+														</p>
+														<div
+															:class="'ms-3 ' + prenda.nombrePrenda.substring(prenda.nombrePrenda.indexOf('Color ') + 1)"
+														></div>
+													</div>
+												</div>
+												<div class="d-flex flex-column">
+													<div>
+														<a @click="agregarCarrito(prenda.nombrePrenda.substring(0, prenda.nombrePrenda.indexOf(' ')), '1', prenda.precio, prenda.precio)" class="btn btn-primary">Agregar al Carrito</a>
+														<a @click="comprar()" class="btn btn-success mt-3">Comprar</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- footer espectacular -->
+			<footer class="bg-second">
+				<div class="container">
+					<div class="d-flex flex-column">
+						<div class="d-flex justify-content-around">
+							<div>
+								<h3 class="footer-head">Productos</h3>
+								<ul class="menu">
+									<li><a href="../web/zapatos.html">Zapatos</a></li>
+									<li><a href="../web/prodMarroquineria.html">Marroquineria</a></li>
+									<li><a href="../web/indumentaria.html">Indumentaria</a></li>
+									<li><a href="../web/joyeria.html">Joyería</a></li>
+								</ul>
+							</div>
+							<!-- <div class="col-3 col-md-6">
+							<h3 class="footer-head">Servicios</h3>
+							<ul class="menu">
+								<li><a href="#">Centro de ayuda</a></li>
+								<li><a href="contactoForm.html">Contáctenos</a></li>
+								<li><a href="#">product help</a></li>
+								<li><a href="#">warranty</a></li>
+								<li><a href="#">order status</a></li>
+							</ul>
+						</div> -->
+							<div>
+								<h3 class="footer-head">Soporte</h3>
+								<ul class="menu">
+									<li><a href="#">Centro de ayuda</a></li>
+									<li><a href="#">Contáctenos</a></li>
+									<li><a href="#">product help</a></li>
+									<li><a href="#">warranty</a></li>
+									<li><a href="#">order status</a></li>
+								</ul>
+							</div>
+						</div>
+						<div>
+							<div class="contact">
+								<h3 class="contact-header">ROSIER</h3>
+								<ul class="contact-socials">
+									<li>
+										<a href="https://www.facebook.com/profile.php?id=100079552594834">
+											<i class="bx bxl-facebook-circle"></i>
+										</a>
+									</li>
+									<li>
+										<a href="https://www.instagram.com/rosier.fashon.design/">
+											<i class="bx bxl-instagram-alt"></i>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<i class="bx bxl-youtube"></i>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<i class="bx bxl-twitter"></i>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="subscribe">
+								<input type="email" placeholder="ENTER YOUR EMAIL" />
+								<button>subscribe</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+
+              
+
+            </div>
+
+        </header>
+
+
+
+        
+        
+       
+
+    </div>
+
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="../lib/prodMarroquinería.js"></script>
+</body>
+
+</html>
